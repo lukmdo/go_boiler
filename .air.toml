@@ -1,0 +1,10 @@
+# run with:
+#   F="XXX.go" air
+
+root = "."
+
+[build]
+cmd = "go build -o ./tmp/main ./$F"
+delay = 200
+#full_bin = "dlv exec ./tmp/main --"
+stop_on_error = true
