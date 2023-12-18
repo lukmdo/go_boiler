@@ -1,6 +1,13 @@
+```sh
+make setup
+```
 
-## manual
-```shell
-pre-commit run --all-files
-pre-commit intall
+run
+```sh
+F="a.go" air
+```
+
+lint / as pre-commit hooks
+```sh
+make lint
 ```
