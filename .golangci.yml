@@ -4,13 +4,24 @@ run:
 linters:
   disable-all: true
   enable:
+    - govet
     - errcheck # Errcheck is a program for checking for unchecked errors in go programs.
     - gci # Gci controls Go package import order and makes it always deterministic
     - goimports # checks that goimports was run
     - ineffassign # Detects when assignments to existing variables are not used
     - misspell # spell checker
-    - revive # configurable linter for Go. Drop-in replacement of golint
-    - staticcheck # go vet on steroids
+    - revive # https://revive.run/docs - configurable linter for Go. Drop-in replacement of golint
+    - staticcheck # https://staticcheck.dev/ - go vet on steroids
     - stylecheck # static analysis, finds bugs and performance issues, offers simplifications, and enforces style rules
     - unconvert # Remove unnecessary type conversions
     - unused # Checks Go code for unused constants, variables, functions and types
+
+linters-settings:
+  # add govet for shadow check (staticcheck does not relly cover that)
+  # https://golangci-lint.run/usage/linters/#govet
+  govet:
+    check-shadowing: true
+issues:
+  exclude:
+    # govet: ignore shadowing of err
+    - declaration of "err" shadows declaration at
