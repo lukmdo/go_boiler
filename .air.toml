@@ -8,6 +8,7 @@ cmd = "go build -o ./tmp/main ./$F"
 
 # run tests
 #full_bin = "go test -v --bench ./$F --benchmem"
+#exclude_regex = []
 #cmd = "echo"
 
 #full_bin = "dlv exec ./tmp/main --"
